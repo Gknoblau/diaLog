@@ -74,7 +74,6 @@ public class StartActivity extends Activity{
             textViewTime.setText("Completed");
         }
     } **/
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate((R.me));
