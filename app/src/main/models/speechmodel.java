@@ -1,3 +1,5 @@
+package ca.knoblauch.dialog;
+
 import java.lang.String;
 import java.util.ArrayList;
 
