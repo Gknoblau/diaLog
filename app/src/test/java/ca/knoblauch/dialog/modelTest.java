@@ -29,8 +29,16 @@ public class modelTest {
         assertEquals(1, results.get("shit"));
         assertEquals(1, results.get("um"));
 
+
+        sm.setTargetTime(560);
+        sm.setActualTime(550);
+
+        assertEquals(560, sm.getTargetTime());
+        assertEquals(10, sm.getTimeDifference());
+
 //        Log.d("result", Integer.toString(count));
     }
+
 //    @test
 //    public void word_analysis_works() throws Exception {
 //          Map results = sm.importText("I am the best. Fuck I mean second");

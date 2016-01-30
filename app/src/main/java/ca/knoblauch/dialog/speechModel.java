@@ -11,12 +11,31 @@ import java.util.Map;
 public class speechModel {
     ArrayList<String> watchWords = new ArrayList<String>();
 
+    private int targetTime;
+    private int actualTime;
 
 
     public Map importText(String inputString){
         inputString.toLowerCase();
         Map results = countWords(inputString);
         return results;
+    }
+    public void setTargetTime(int inputTime){
+        targetTime=inputTime;
+    }
+    public int getTargetTime(){
+        return targetTime;
+    }
+
+    public void setActualTime(int inputTime){
+        actualTime = inputTime;
+    }
+    public int getActualTime(){
+        return actualTime;
+    }
+
+    public int getTimeDifference(){
+        return targetTime - actualTime;
     }
 
     private Map countWords(String inputString){
