@@ -1,7 +1,9 @@
+package ca.knoblauch.dialog;
+
 import java.lang.String;
 import java.util.ArrayList;
 
-public class speechModel {
+public class SpeechModel {
     private ArrayList watchWords = new ArrayList<String>();
 
     watchWords.add('fuck');
@@ -10,9 +12,14 @@ public class speechModel {
     watchWords.add('like');
     watchWords.add('damn');
     watchWords.add('darn');
+    public Map importText(String inputString){
+        inputString.toLowerCase();
+        Map results = coutWords(inputString);
+        return results;
+    }
 
-
-    private void countWords(inputString){
+    private Map countWords(String inputString){
+        Map dictionary = new HashMap();
         String[] words = inputString.split("\\s+");
         if(inputString.equals(""))
             continue;
