@@ -6,6 +6,7 @@ import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import java.security.AccessControlContext;
@@ -19,6 +20,7 @@ public class StartActivity extends Activity{
 
     Button btnStart, btnStop;
     TextView textViewTime;
+    Chronometer chronometer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,28 +28,31 @@ public class StartActivity extends Activity{
 
         btnStart = (Button) findViewById(R.id.btnStart);
         btnStop = (Button) findViewById(R.id.btnStop);
-        textViewTime = (TextView) findViewById(R.id.textViewTime);
+        chronometer = (Chronometer) findViewById(R.id.chronometer);
+        //textViewTime = (TextView) findViewById(R.id.textViewTime);
+        //textViewTime.setText("00:03:00");
+        //final CounterClass timer = new CounterClass(180000, 1000);
 
-        textViewTime.setText("00:03:00");
-
-        final CounterClass timer = new CounterClass(180000, 1000);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                timer.start();
+                chronometer.start();
+                //timer.start();
             }
         });
 
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                timer.cancel();
+                chronometer.stop();
+                //Change to differnet view
+                //timer.cancel();
             }
         });
 
     }
 
-    public class CounterClass extends CountDownTimer {
+    /**public class CounterClass extends CountDownTimer {
         public CounterClass(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
@@ -68,7 +73,8 @@ public class StartActivity extends Activity{
         public void onFinish() {
             textViewTime.setText("Completed");
         }
-    }
+    } **/
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate((R.me));

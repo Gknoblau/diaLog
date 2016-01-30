@@ -11,26 +11,24 @@
         android:id="@+id/btnStart"
         android:layout_marginLeft="28dp"
         android:text="Start"
-        android:layout_marginStart="57dp"
-        android:layout_below="@+id/textViewTime"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="112dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnStop"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
         android:layout_marginRight="67dp"
-        android:text="Stop" />
+        android:text="Stop"
+        android:layout_marginEnd="46dp"
+        android:layout_alignTop="@+id/btnStart"
+        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:id="@+id/textViewTime"
+    <Chronometer
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnStop"
+        android:id="@+id/chronometer"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp"
-        android:textSize="25sp"/>
+        android:layout_marginTop="116dp" />
 
 </RelativeLayout>
