@@ -22,8 +22,8 @@ public class modelTest {
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
-        sm.importText("I am the best. Fuck, whore I mean documents. shit fuck fucked fuc um");
-        Map results = sm.getWordDictionary();
+        sm.importVoiceText("I am the best. Fuck, whore I mean documents. shit fuck fucked fuc um");
+        Map results = sm.getActualWordDicCount();
         // 13
         Integer count = (Integer) results.get("fuck");
 
@@ -32,32 +32,29 @@ public class modelTest {
         assertEquals(1, results.get("um"));
 
 
-        sm.setTargetTime(560);
         sm.setActualTime(550);
-        assertEquals(560, sm.getTargetTime());
-        assertEquals(10, sm.getTimeDifference());
-        assertEquals(16, sm.getSyllabeCount());
+        assertEquals(16, sm.getActualSyllabeCount());
 
-        sm.importText("actor");
-        results = sm.getWordDictionary();
+        sm.importVoiceText("actor");
+        results = sm.getActualWordDicCount();
 
-        assertEquals("actor", sm.getText());
+        assertEquals("actor", sm.getVoiceText());
 
-        assertEquals(2, sm.getSyllabeCount());
+        assertEquals(2, sm.getActualSyllabeCount());
 
-        sm.importText("documents");
-        results = sm.getWordDictionary();
+        sm.importVoiceText("documents");
+        results = sm.getActualWordDicCount();
 
-        assertEquals("documents", sm.getText());
+        assertEquals("documents", sm.getVoiceText());
 
-        assertEquals(3, sm.getSyllabeCount());
-        sm.importText("Plain English recommends short sentences. Robert Gunning faults marathon sentences in his book How To Take The Fog Out Of Writing. Though he admits to the possibility of long sentences being balanced and readable, he notes that only highly skilled writers such as Charles Dickens and Thomas Wolfe can write a marathon sentence with clarity. He adds: “But even these accomplished writers produced marathon sentences only occasionally. On the average, they wrote fewer than 20 words per sentence.”");
+        assertEquals(3, sm.getActualSyllabeCount());
+        sm.importVoiceText("Plain English recommends short sentences. Robert Gunning faults marathon sentences in his book How To Take The Fog Out Of Writing. Though he admits to the possibility of long sentences being balanced and readable, he notes that only highly skilled writers such as Charles Dickens and Thomas Wolfe can write a marathon sentence with clarity. He adds: “But even these accomplished writers produced marathon sentences only occasionally. On the average, they wrote fewer than 20 words per sentence.”");
         sm = speechModel.getInstance();
-        results = sm.getWordDictionary();
+        results = sm.getActualWordDicCount();
 
         int readingLevel = sm.getReadingLevel();
-        int wordCount = sm.getWordCount();
-        int syllableCount = sm.getSyllabeCount();
+        int wordCount = sm.getActualWordCount();
+        int syllableCount = sm.getActualSyllabeCount();
 
         assertEquals(77,wordCount);
         assertEquals(120,syllableCount);

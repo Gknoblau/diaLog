@@ -67,7 +67,7 @@ public class StartActivity extends Activity{
     private void analysis() {
         long stopTime = System.currentTimeMillis() / 1000L;
         sm.setActualTime((int) (stopTime-startTime));
-        sm.importText(voiceString);
+        sm.importVoiceText(voiceString);
         sm.setTargetText(""+scriptInput);
         Intent intent = new Intent(this, results.class);
         startActivity(intent);

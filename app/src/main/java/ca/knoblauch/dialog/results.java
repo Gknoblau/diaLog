@@ -52,7 +52,7 @@ public class results extends Activity{
 
         pacingVal.setText(""+sm.getActualPacing());
         fv.setText("" + sm.getTotalFlaggedWords());
-        readVal.setText(""+sm.getReadingLevel());
+        readVal.setText(""+sm.getActualReadingLevel());
 //        pacingVal.setText(""+sm.getActualPacing());
 
         pacing.setOnClickListener(new View.OnClickListener() {
