@@ -33,7 +33,7 @@ public class StartActivity extends Activity{
     //private Chronometer speechtimer;
     private TextView txtSpeechOutput;
     private ImageButton btnSpeak;
-    private speechModel sm = new speechModel();
+    private speechModel sm = speechModel.getInstance();
     private String voiceString;
     private Boolean startAnalysis = false;
     private final int REQ_CODE_SPEECH_INPUT = 100;
