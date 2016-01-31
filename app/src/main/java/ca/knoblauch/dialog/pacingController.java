@@ -2,7 +2,6 @@ package ca.knoblauch.dialog;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -15,7 +14,7 @@ public class pacingController extends Activity {
     private TextView TargetTimeTV;
 
 
-    private String convertSecondsFormat(int secs){
+    private String convertSecondsFormat(double secs){
         int mins = (int) secs/60;
         int seconds = (int) secs %60;
         if (seconds <10 ){
@@ -43,7 +42,7 @@ public class pacingController extends Activity {
         int wpm = sm.getActualPacing();
         actualSPMVal.setText(""+wpm);
 
-        int targSeconds = sm.getTargetTime();
+        double targSeconds = sm.getTargetTime();
         int actualSeconds = sm.getActualTime();
 
         TargetTimeTV.setText(convertSecondsFormat(targSeconds));

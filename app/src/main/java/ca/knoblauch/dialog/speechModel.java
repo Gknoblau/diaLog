@@ -66,8 +66,11 @@ public class speechModel {
         targetSyllableCount=0;
         targetText=targText;
         targetWordDicCount= countTargetWords(targetText);
+        double invs = 1.0/TARGETSPM;
+        double tmp = invs* (double)targetSyllableCount;
 
-        targetTime = (int) (1.0/TARGETSPM)/targetSyllableCount *60 ;
+        double secondTemp = tmp*60.0 ;
+        targetTime = (int) secondTemp;
         if(targetTime == 0){
             targetTime = 1;
         }
@@ -80,7 +83,7 @@ public class speechModel {
         return targetIsSet;
     }
     public int getTargetTime(){
-        return targetTime;
+        return (int) targetTime;
     }
     public Map getActualWordDicCount(){
         return actualWordDicCount;
@@ -92,7 +95,7 @@ public class speechModel {
         return actualTime;
     }
 
-    public Integer getTimeDifference(){
+    public double getTimeDifference(){
         return targetTime - actualTime;
     }
 
