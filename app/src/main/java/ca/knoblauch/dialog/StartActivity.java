@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,8 @@ public class StartActivity extends Activity{
     private Boolean startAnalysis = false;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public static final String  timeTillStop = "500";
+    //public String targetText;
+    public EditText scriptInput;
 
 
 
@@ -48,12 +51,14 @@ public class StartActivity extends Activity{
 
         //speechtimer = (Chronometer) findViewById(R.id.speechTimer);
         //txtSpeechOutput = (TextView) findViewById(R.id.txtSpeechOutput);
+        scriptInput = (EditText) findViewById(R.id.scriptInput);
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
 
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                scriptInput.getText();
                 promptSpeechInput();
             }
         });
@@ -63,6 +68,7 @@ public class StartActivity extends Activity{
         long stopTime = System.currentTimeMillis() / 1000L;
         sm.setActualTime((int) (stopTime-startTime));
         sm.importText(voiceString);
+        sm.setTargetText(scriptInput);
         Intent intent = new Intent(this, results.class);
         startActivity(intent);
 
