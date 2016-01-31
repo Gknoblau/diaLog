@@ -23,7 +23,6 @@ public class clarity extends Activity {
         setContentView(R.layout.pacingview);
         speechModel sm = speechModel.getInstance();
 
-
         actualReadLevel = (TextView) findViewById(R.id.actualReadLevel);
         targetReadLevel = (TextView) findViewById(R.id.targetReadLevel);
         actualWordsMinute = (TextView) findViewById(R.id.actualWordsMinute);
@@ -35,15 +34,19 @@ public class clarity extends Activity {
         int actualWordsPerMinute = sm.getActualPacing();
         int targetWordsPerMinute = sm.getTargetPacing();
         //int hammingDistance =
-        //int spwActual = sm.getSPWActual();
-        //int
-
 
         actualReadLevel.setText(actualReadingLevel);
         targetReadLevel.setText(targetReadingLevel);
         actualWordsMinute.setText(actualWordsPerMinute);
         targetWordsMinute.setText(targetWordsPerMinute);
         //hammingDistance.setText();
+
+        actualReadLevel.setText("");
+        targetReadLevel.setText("");
+        actualWordsMinute.setText("");
+        targetWordsMinute.setText("");
+        hammingDistance.setText("");
+
 
 
 
