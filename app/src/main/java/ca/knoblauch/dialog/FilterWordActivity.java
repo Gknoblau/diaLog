@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -37,12 +38,22 @@ public class FilterWordActivity extends Activity  {
 
 
         List<String> flaggedWordList = new ArrayList<String>();
-        flaggedWordList.add("fuck: " + flaggedWords.get("fuck") );
-        flaggedWordList.add("shit: ");
-        flaggedWordList.add("um: ");
-        flaggedWordList.add("like: ");
-        flaggedWordList.add("damn: ");
-        flaggedWordList.add("darn: ");
+        List<String> swears= Arrays.asList("fuck", "shit", "um","uh","damn","like","damn","darn");
+
+        System.out.println("==> For Loop Example.");
+        for (int i = 0; i < swears.size(); i++) {
+            int Count =0;
+            if (flaggedWords.get(swears.get(i))!=null){
+                flaggedWordList.add(swears.get(i)+": " + (flaggedWords.get("fuck") ));
+
+            }
+        }
+//        flaggedWordList.add("fuck: " + (flaggedWords.get("fuck") );
+//        flaggedWordList.add("shit: ");
+//        flaggedWordList.add("um: ");
+//        flaggedWordList.add("like: ");
+//        flaggedWordList.add("damn: ");
+//        flaggedWordList.add("darn: ");
 //        ListAdapter la  = new ArrayAdapter<String>(this, );
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,

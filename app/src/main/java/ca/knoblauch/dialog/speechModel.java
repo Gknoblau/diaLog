@@ -66,17 +66,28 @@ public class speechModel {
 
     private Map countWords(String inputString){
         watchWords.add("fuck");
+        watchWords.add("fucked");
+        watchWords.add("fucking");
         watchWords.add("shit");
         watchWords.add("um");
+        watchWords.add("uh");
         watchWords.add("like");
         watchWords.add("damn");
         watchWords.add("darn");
-        
+
         Map <String, Integer> dictionary = new HashMap<String, Integer>();
         String[] words = inputString.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
         wordCount = words.length;
         for(String word: words) {
             syllableCount+= countSyllables(word);
+
+            word = word.replace("ing","");
+            word = word.replace("ed","");
+            word = word.replace("ter","");
+            word = word.replace("ing","");
+            if(word.equals( "fuc")){
+                word="fuck";
+            }
             boolean isWatchWord = watchWords.contains(word);
             if(isWatchWord ) {
                 if (dictionary.containsKey(word)) {

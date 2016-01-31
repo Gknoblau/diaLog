@@ -22,12 +22,12 @@ public class modelTest {
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
-        sm.importText("I am the best. Fuck, whore I mean documents. shit fuck um");
+        sm.importText("I am the best. Fuck, whore I mean documents. shit fuck fucked fuc um");
         Map results = sm.getWordDictionary();
         // 13
         Integer count = (Integer) results.get("fuck");
 
-        assertEquals(2, results.get("fuck"));
+        assertEquals(4, results.get("fuck"));
         assertEquals(1, results.get("shit"));
         assertEquals(1, results.get("um"));
 
@@ -36,7 +36,7 @@ public class modelTest {
         sm.setActualTime(550);
         assertEquals(560, sm.getTargetTime());
         assertEquals(10, sm.getTimeDifference());
-        assertEquals(13, sm.getSyllabeCount());
+        assertEquals(16, sm.getSyllabeCount());
 
         sm.importText("actor");
         results = sm.getWordDictionary();
