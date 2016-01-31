@@ -30,19 +30,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/time"
         android:layout_gravity="center_horizontal"
-        android:text="2:43"
         android:layout_below="@+id/resultsTitle"
         android:layout_toEndOf="@+id/timeTitle"
-        android:layout_marginStart="25dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:id="@+id/pacingView"
-        android:layout_below="@+id/timeTitle"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:visibility="visible" />
+        android:layout_marginStart="25dp"
+        android:inputType="text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,7 +52,16 @@
         android:layout_below="@+id/pacingView"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:visibility="visible" />
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:id="@+id/pacingView"
+        android:layout_below="@+id/timeTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
         android:layout_below="@+id/flaggedWordsView"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -97,19 +97,16 @@
         android:layout_height="wrap_content"
         android:text="Script"
         android:id="@+id/script"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="35dp"
-        android:layout_alignEnd="@+id/readingLevel"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@+id/home"
+        android:layout_alignStart="@+id/readingLevel" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home"
         android:id="@+id/home"
-        android:layout_alignTop="@+id/script"
-        android:layout_alignStart="@+id/time"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/time" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -118,7 +115,7 @@
         android:text="100"
         android:id="@+id/pacingValue"
         android:layout_alignTop="@+id/pacing"
-        android:layout_alignStart="@+id/time" />
+        android:layout_alignEnd="@+id/readingLevelValue" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -127,7 +124,7 @@
         android:text="5"
         android:id="@+id/flaggedWordsValue"
         android:layout_alignTop="@+id/flaggedWords"
-        android:layout_alignStart="@+id/pacingValue" />
+        android:layout_alignStart="@+id/readingLevelValue" />
 
     <TextView
         android:layout_width="wrap_content"

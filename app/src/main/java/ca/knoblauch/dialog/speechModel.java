@@ -60,7 +60,7 @@ public class speechModel {
         return actualTime;
     }
 
-    public int getTimeDifference(){
+    public Integer getTimeDifference(){
 
         return targetTime - actualTime;
     }

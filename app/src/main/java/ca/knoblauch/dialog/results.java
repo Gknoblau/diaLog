@@ -19,6 +19,9 @@ public class results extends Activity{
     private Button readingLevel;
     private Button script;
     private Button home;
+    private TextView timeView;
+    private int time;
+    private int timeMin;
 
     private TextView readVal;
 
@@ -31,6 +34,7 @@ public class results extends Activity{
         setContentView(R.layout.results);
         speechModel sm = speechModel.getInstance();
 
+        timeView = (TextView) findViewById(R.id.time);
         pacing = (Button) findViewById(R.id.pacingView);
         flaggedWords = (Button) findViewById(R.id.flaggedWordsView);
         fv = (TextView) findViewById(R.id.flaggedWordsValue);
@@ -42,9 +46,18 @@ public class results extends Activity{
 
         script = (Button)findViewById(R.id.script);
         home = (Button) findViewById(R.id.home);
+
+        time = sm.getActualTime();
+        timeMin = time/60;
+        time = time%60;
+        String time1 = timeMin + ":" + time;
+        timeView.setText(time1);
+
+
         fv.setText("" + sm.getTotalFlaggedWords());
         readVal.setText(""+sm.getReadingLevel());
 //        pacingVal.setText(""+sm.getActualPacing());
+
         pacing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
