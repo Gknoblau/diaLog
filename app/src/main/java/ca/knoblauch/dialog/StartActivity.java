@@ -60,11 +60,11 @@ public class StartActivity extends Activity{
     }
 
     private void analysis() {
-        setContentView(R.layout.results);
         long stopTime = System.currentTimeMillis() / 1000L;
         sm.setActualTime((int) (stopTime-startTime));
         sm.importText(voiceString);
-        Map results = sm.getWordDictionary();
+        Intent intent = new Intent(this, results.class);
+        startActivity(intent);
 
     }
 
@@ -118,6 +118,6 @@ public class StartActivity extends Activity{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate((R.me));
-        return true;
+        return false;
     }
 }
