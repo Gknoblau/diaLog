@@ -15,18 +15,18 @@ public class speechModel {
     private int targetTime;
     private int actualTime;
     private int wordCount;
+    private Map wordDicCount;
     private int syllableCount;
     private String voiceInputString;
     private int AVERAGEWORDPERSENTANCES =17;
 
-    public Map importText(String inputString){
+    public void importText(String inputString){
         voiceInputString = inputString.toLowerCase();
         wordCount =0;
         syllableCount=0;
 
-        Map results = countWords(voiceInputString);
+        wordDicCount = countWords(voiceInputString);
 
-        return results;
     }
     public void setTargetTime(int inputTime){
         targetTime=inputTime;
@@ -34,15 +34,20 @@ public class speechModel {
     public int getTargetTime(){
         return targetTime;
     }
-
+    public Map getWordDictionary(){
+        return wordDicCount;
+    }
     public void setActualTime(int inputTime){
+
         actualTime = inputTime;
     }
     public int getActualTime(){
+
         return actualTime;
     }
 
     public int getTimeDifference(){
+
         return targetTime - actualTime;
     }
 

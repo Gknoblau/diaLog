@@ -61,14 +61,19 @@ public class StartActivity extends Activity{
 
     private void analysis() {
         setContentView(R.layout.results);
-        Map results = sm.importText(voiceString);
+        long stopTime = System.currentTimeMillis() / 1000L;
+        sm.setActualTime((int) (stopTime-startTime));
+        sm.importText(voiceString);
+        Map results = sm.getWordDictionary();
 
     }
 
     /**
      * Showing google speech input dialog
      * */
+    long startTime;
     private void promptSpeechInput() {
+        startTime = System.currentTimeMillis() / 1000L;
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
