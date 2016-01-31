@@ -14,6 +14,7 @@ public class clarity extends Activity {
     private TextView actualWordsMinute;
     private TextView targetWordsMinute;
     private TextView hammingDistance;
+    private Boolean isTargetSet;
 
     private TextView SPW;
 
@@ -29,7 +30,7 @@ public class clarity extends Activity {
         targetWordsMinute = (TextView) findViewById(R.id.targetWordsMinute);
         hammingDistance = (TextView) findViewById(R.id.hammingDistance);
 
-        Boolean isTargetSet = sm.isTargetIsSet();
+        isTargetSet = sm.isTargetIsSet();
         if (isTargetSet == true){
             targetReadLevel.setText(""+sm.getTargetReadingLevel());
             targetWordsMinute.setText(""+sm.getTargetPacing());

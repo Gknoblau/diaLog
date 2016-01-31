@@ -41,6 +41,7 @@ public class StartActivity extends Activity{
     public static final String  timeTillStop = "500";
     //public String targetText;
     public EditText scriptInput;
+    public String inputTextVal;
 
 
 
@@ -66,9 +67,12 @@ public class StartActivity extends Activity{
 
     private void analysis() {
         long stopTime = System.currentTimeMillis() / 1000L;
-        sm.setActualTime((int) (stopTime-startTime));
+        sm.setActualTime((int) (stopTime - startTime));
         sm.importVoiceText(voiceString);
-        sm.setTargetText(""+scriptInput);
+        inputTextVal = ""+scriptInput.getText();
+        if (inputTextVal.length()>4){
+            sm.setTargetText(""+scriptInput);
+        }
         Intent intent = new Intent(this, results.class);
         startActivity(intent);
 
@@ -113,7 +117,6 @@ public class StartActivity extends Activity{
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     voiceString = (result.get(0));
-                    startAnalysis = true;
                     analysis();
                     //txtSpeechOutput.setText(result.get(0));
                 }
