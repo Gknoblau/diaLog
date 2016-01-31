@@ -71,6 +71,7 @@ public class speechModel {
         watchWords.add("like");
         watchWords.add("damn");
         watchWords.add("darn");
+        
         Map <String, Integer> dictionary = new HashMap<String, Integer>();
         String[] words = inputString.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
         wordCount = words.length;
