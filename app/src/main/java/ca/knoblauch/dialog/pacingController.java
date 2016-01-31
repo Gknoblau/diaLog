@@ -18,8 +18,13 @@ public class pacingController extends Activity {
     private String convertSecondsFormat(int secs){
         int mins = (int) secs/60;
         int seconds = (int) secs %60;
+        if (seconds <10 ){
+            return "" +mins + ": 0" + seconds;
 
-        return "" +mins + ": " + seconds;
+        } else {
+            return "" +mins + ": 0" + seconds;
+
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
