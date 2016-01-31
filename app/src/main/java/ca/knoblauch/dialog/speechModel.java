@@ -14,6 +14,7 @@ public class speechModel {
 
     private int targetTime;
     private int actualTime;
+    private String targetText;
     private int wordCount;
     private Map wordDicCount;
     private int syllableCount;
@@ -39,6 +40,9 @@ public class speechModel {
 
         wordDicCount = countWords(voiceInputString);
 
+    }
+    public void setTargetText (String targText){
+        targetText=targText;
     }
     public void setTargetTime(int inputTime){
         targetTime=inputTime;
@@ -159,6 +163,10 @@ public class speechModel {
     }
     public int getWordCount(){
         return wordCount;
+    }
+    private int spwActual = (int)((double)syllableCount/(double) wordCount);
+    public int getSPWActual(){
+        return spwActual;
     }
     public int getReadingLevel(){
         double totalSentences = (double) wordCount/17.0;
