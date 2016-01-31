@@ -34,7 +34,7 @@ public class FilterWordActivity extends Activity  {
         setContentView(R.layout.filterwords);
         flaggedWordListView = (ListView) findViewById(R.id.flaggedWordListView);
         speechModel sm = speechModel.getInstance();
-        Map flaggedWords = sm.getWordDictionary();
+        Map flaggedWords = sm.getActualWordDicCount();
 
 
         List<String> flaggedWordList = new ArrayList<String>();

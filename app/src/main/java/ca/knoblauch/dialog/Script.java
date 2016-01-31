@@ -21,7 +21,7 @@ public class Script extends Activity {
         setContentView(R.layout.script);
         speechTextView = (TextView) findViewById(R.id.speechText);
         speechModel sm = speechModel.getInstance();
-        speechText = sm.getText();
+        speechText = sm.getVoiceText();
         // Thanks to http://stackoverflow.com/questions/6843596/android-highlight-a-word-in-a-textview and http://stackoverflow.com/questions/2120035/highlight-text-in-textview-or-webview
         //Spannable spanText = Spannable.Factory.getInstance().newSpannable(speechText);
         //spanText.setSpan(new BackgroundColorSpan(0xFFFFFF00), 1, 10, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

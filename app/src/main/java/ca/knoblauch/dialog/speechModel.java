@@ -14,6 +14,7 @@ public class speechModel {
 
     private int targetTime;
     private int actualTime;
+
     private String actualText;
     private String targetText;
 
