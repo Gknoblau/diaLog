@@ -29,16 +29,24 @@ public class clarity extends Activity {
         targetWordsMinute = (TextView) findViewById(R.id.targetWordsMinute);
         hammingDistance = (TextView) findViewById(R.id.hammingDistance);
 
-        //int rl = sm.getReadingLevel();
-        //int spwActual = sm.getSPWActual();
-        //int
+        int actualReadingLevel = sm.getActualReadingLevel();
+        int targetReadingLevel = sm.getTargetReadingLevel();
+        int actualWordsPerMinute = sm.getActualPacing();
+        int targetWordsPerMinute = sm.getTargetPacing();
+        //int hammingDistance =
 
+        actualReadLevel.setText(actualReadingLevel);
+        targetReadLevel.setText(targetReadingLevel);
+        actualWordsMinute.setText(actualWordsPerMinute);
+        targetWordsMinute.setText(targetWordsPerMinute);
+        //hammingDistance.setText();
 
         actualReadLevel.setText("");
         targetReadLevel.setText("");
         actualWordsMinute.setText("");
         targetWordsMinute.setText("");
         hammingDistance.setText("");
+
 
 
 
