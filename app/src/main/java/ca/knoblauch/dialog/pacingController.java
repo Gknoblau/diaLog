@@ -44,9 +44,11 @@ public class pacingController extends Activity {
 
         double targSeconds = sm.getTargetTime();
         int actualSeconds = sm.getActualTime();
-
-        TargetTimeTV.setText(convertSecondsFormat(targSeconds));
-
+       if(sm.isTargetIsSet()) {
+           TargetTimeTV.setText(convertSecondsFormat(targSeconds));
+       } else {
+           TargetTimeTV.setText("N/A");
+       }
         ActualTimeTV.setText(convertSecondsFormat(actualSeconds));
     }
 }

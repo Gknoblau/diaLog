@@ -57,6 +57,7 @@ public class speechModel {
         voiceInputString = inputString.toLowerCase();
         actualWordCount =0;
         actualSyllableCount=0;
+        totalFlaggedWords=0;
 
         actualWordDicCount= countActualWords(voiceInputString);
 
@@ -112,12 +113,9 @@ public class speechModel {
     }
     private Map countActualWords(String inputString){
         watchWords.add("fuck");
-        watchWords.add("fucked");
-        watchWords.add("fucking");
         watchWords.add("shit");
         watchWords.add("um");
         watchWords.add("uh");
-        watchWords.add("like");
         watchWords.add("damn");
         watchWords.add("darn");
 
