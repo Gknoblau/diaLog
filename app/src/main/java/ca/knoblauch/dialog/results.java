@@ -72,7 +72,7 @@ public class results extends Activity{
         readingLevel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(view.getContext(), FilterWordActivity.class);
+                Intent intent2 = new Intent(view.getContext(), clarity.class);
                 startActivity(intent2);
             }
         });

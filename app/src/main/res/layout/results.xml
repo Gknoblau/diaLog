@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Reading Level"
+        android:text="Clarity"
         android:id="@+id/readingLevel"
         android:layout_marginTop="43dp"
         android:layout_below="@+id/flaggedWordsView"
