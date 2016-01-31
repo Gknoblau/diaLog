@@ -30,11 +30,11 @@ public class FilterWordActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filterwords);
 
-        List<String> myList = new ArrayList<String>();
-        myList.add("test1");
-        myList.add("test2");
-        myList.add("test3");
-        myList.add("test4");
+//        List<String> myList = new ArrayList<String>();
+//        myList.add("test1");
+//        myList.add("test2");
+//        myList.add("test3");
+//        myList.add("test4");
 
         //speechtimer = (Chronometer) findViewById(R.id.speechTimer);
         //txtSpeechOutput = (TextView) findViewById(R.id.txtSpeechOutput);
