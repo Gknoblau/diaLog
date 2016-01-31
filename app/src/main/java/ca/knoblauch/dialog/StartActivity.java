@@ -37,6 +37,9 @@ public class StartActivity extends Activity{
     private String voiceString;
     private Boolean startAnalysis = false;
     private final int REQ_CODE_SPEECH_INPUT = 100;
+    public static final String  timeTillStop = "4000";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class StartActivity extends Activity{
         setContentView(R.layout.main);
 
         //speechtimer = (Chronometer) findViewById(R.id.speechTimer);
-        txtSpeechOutput = (TextView) findViewById(R.id.txtSpeechOutput);
+        //txtSpeechOutput = (TextView) findViewById(R.id.txtSpeechOutput);
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
 
 
@@ -67,9 +70,11 @@ public class StartActivity extends Activity{
      * */
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, timeTillStop);
+        intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, timeTillStop);
+
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
                 getString(R.string.speech_prompt));
         try {
