@@ -34,11 +34,11 @@ public class FilterWordActivity extends Activity  {
         setContentView(R.layout.filterwords);
         flaggedWordListView = (ListView) findViewById(R.id.flaggedWordListView);
         speechModel sm = speechModel.getInstance();
-        Map flaggedWords = sm.getWordDictionary();
+        Map flaggedWords = sm.getActualWordDicCount();
 
 
         List<String> flaggedWordList = new ArrayList<String>();
-        List<String> swears= Arrays.asList("fuck", "shit", "um","uh","damn","like","damn","darn");
+        List<String> swears= Arrays.asList("fuck", "shit", "um","uh","damn","darn");
         int Count =0;
 
         for (int i = 0; i < swears.size(); i++) {

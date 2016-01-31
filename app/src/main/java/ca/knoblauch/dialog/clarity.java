@@ -21,7 +21,7 @@ public class clarity extends Activity {
 
         RLevelVal = (TextView) findViewById(R.id.readingLevelValDisp);
         SPW = (TextView) findViewById(R.id.avgspw);
-        int rl = sm.getReadingLevel();
+        int rl = sm.getActualReadingLevel();
         int spwActual = sm.getSPWActual();
         RLevelVal.setText(""+rl);
         SPW.setText(""+ spwActual);

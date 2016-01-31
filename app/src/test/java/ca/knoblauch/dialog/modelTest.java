@@ -52,7 +52,7 @@ public class modelTest {
         sm = speechModel.getInstance();
         results = sm.getActualWordDicCount();
 
-        int readingLevel = sm.getReadingLevel();
+        int readingLevel = sm.getActualReadingLevel();
         int wordCount = sm.getActualWordCount();
         int syllableCount = sm.getActualSyllabeCount();
 
@@ -75,6 +75,12 @@ public class modelTest {
         int readlevel = (int) Math.round(summation);
         assertEquals(9, readlevel);
 
+        sm.setTargetText("meow goes the cat");
+
+        sm.importVoiceText("moo goes the cat");
+        int editDist = sm.getLevnshteinDistance();
+
+        assertEquals(2,editDist);
 //        Log.d("result", Integer.toString(count));
 
     }
