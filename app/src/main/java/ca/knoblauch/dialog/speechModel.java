@@ -9,9 +9,8 @@ import java.util.Map;
  * Created by Dev on 2016-01-30.
  */
 public class speechModel {
+
     ArrayList<String> watchWords = new ArrayList<String>();
-
-
 
     public Map importText(String inputString){
         inputString.toLowerCase();

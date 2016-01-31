@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.security.AccessControlContext;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -28,11 +29,13 @@ import java.util.concurrent.TimeUnit;
 
 public class StartActivity extends Activity{
 
-    private Button btnStart, btnStop;
-    private TextView textViewTime;
-    private Chronometer chronometer;
-    private TextView txtSpeechInput;
-    private Button btnSpeak;
+
+    //private Chronometer speechtimer;
+    private TextView txtSpeechOutput;
+    private ImageButton btnSpeak;
+    private speechModel sm = new speechModel();
+    private String voiceString;
+    private Boolean startAnalysis = false;
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
     @Override
@@ -40,9 +43,10 @@ public class StartActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        //chronometer = (Chronometer) findViewById(R.id.chronometer);
-        txtSpeechInput = (TextView) findViewById(R.id.txtSpeechInput);
-        btnSpeak = (Button) findViewById(R.id.btnSpeak);
+        //speechtimer = (Chronometer) findViewById(R.id.speechTimer);
+        txtSpeechOutput = (TextView) findViewById(R.id.txtSpeechOutput);
+        btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
+
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +54,11 @@ public class StartActivity extends Activity{
                 promptSpeechInput();
             }
         });
+    }
+
+    private void analysis() {
+        setContentView(R.layout.results);
+        Map results = sm.importText(voiceString);
 
     }
 
@@ -85,7 +94,10 @@ public class StartActivity extends Activity{
 
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    txtSpeechInput.setText(result.get(0));
+                    voiceString = (result.get(0));
+                    startAnalysis = true;
+                    analysis();
+                    //txtSpeechOutput.setText(result.get(0));
                 }
                 break;
             }

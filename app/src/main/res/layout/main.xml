@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/txtSpeechInput"
+        android:id="@+id/txtSpeechOutput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -25,11 +25,13 @@
         android:gravity="center"
         android:orientation="vertical" >
 
-        <Button
+        <ImageButton
             android:id="@+id/btnSpeak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:src="@mipmap/simple"
+            android:scaleType="fitCenter" />
 
         <TextView
             android:layout_width="wrap_content"
