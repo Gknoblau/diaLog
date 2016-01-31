@@ -30,8 +30,6 @@ import java.util.concurrent.TimeUnit;
 
 public class StartActivity extends Activity{
 
-
-    //private Chronometer speechtimer;
     private TextView txtSpeechOutput;
     private ImageButton btnSpeak;
     private speechModel sm = speechModel.getInstance();
@@ -40,7 +38,7 @@ public class StartActivity extends Activity{
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public static final String  timeTillStop = "500";
     //public String targetText;
-    public EditText scriptInput;
+   //public EditText scriptInput;
     public String inputTextVal;
 
 
@@ -50,16 +48,14 @@ public class StartActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        //speechtimer = (Chronometer) findViewById(R.id.speechTimer);
-        //txtSpeechOutput = (TextView) findViewById(R.id.txtSpeechOutput);
-        scriptInput = (EditText) findViewById(R.id.scriptInput);
+        //scriptInput = (EditText) findViewById(R.id.scriptInput);
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
 
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scriptInput.getText();
+                //scriptInput.getText();
                 promptSpeechInput();
             }
         });
@@ -69,10 +65,10 @@ public class StartActivity extends Activity{
         long stopTime = System.currentTimeMillis() / 1000L;
         sm.setActualTime((int) (stopTime - startTime));
         sm.importVoiceText(voiceString);
-        inputTextVal = ""+scriptInput.getText();
-        if (inputTextVal.length()>4){
-            sm.setTargetText(""+scriptInput);
-        }
+        //inputTextVal = ""+scriptInput.getText();
+        //if (inputTextVal.length()>4){
+        //    sm.setTargetText(""+scriptInput);
+        //}
         Intent intent = new Intent(this, results.class);
         startActivity(intent);
 

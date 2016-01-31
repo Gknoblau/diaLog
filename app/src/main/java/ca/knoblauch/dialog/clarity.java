@@ -16,8 +16,6 @@ public class clarity extends Activity {
     private TextView hammingDistance;
     private Boolean isTargetSet;
 
-    private TextView SPW;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
