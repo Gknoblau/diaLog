@@ -15,16 +15,16 @@ public class speechModel {
     private int targetTime;
     private int actualTime;
     private String actualText;
-    private String targetText;
+    private String targetText="";
 
     private int actualWordCount;
-    private int targetWordCount;
+    private int targetWordCount=0;
 
     private Map actualWordDicCount;
     private Map targetWordDicCount;
 
     private int actualSyllableCount;
-    private int targetSyllableCount;
+    private int targetSyllableCount = 0;
 
     private int totalFlaggedWords =0;
 
@@ -33,7 +33,8 @@ public class speechModel {
     private int AVERAGEWORDPERSENTANCES =17;
     private double TARGETSPM = 150.0;
 
-    private int hammingDistance;
+    private boolean targetIsSet = false;
+
     private static speechModel firstInstance = null;
     private speechModel() {};
 
@@ -64,7 +65,12 @@ public class speechModel {
         targetWordDicCount= countTargetWords(targetText);
 
         targetTime = (int) (1.0/TARGETSPM)/targetSyllableCount ;
+        targetIsSet = true;
 
+    }
+
+    public boolean isTargetIsSet(){
+        return targetIsSet;
     }
     public int getTargetTime(){
         return targetTime;
@@ -227,7 +233,11 @@ public class speechModel {
         return (int) Math.round(summation);
     }
     public int getLevnshteinDistance (){
-        return levenshteinDistance(targetText,voiceInputString);
+        if(targetText==null){
+            return 0;
+        } else {
+            return levenshteinDistance(targetText, voiceInputString);
+        }
     }
     private int levenshteinDistance (CharSequence lhs, CharSequence rhs) {
         int len0 = lhs.length() + 1;
