@@ -10,8 +10,17 @@ import android.widget.TextView;
  */
 public class pacingController extends Activity {
 
-    private TextView pacingVal;
-    private TextView tTime;
+    private TextView actualSPMVal;
+    private TextView ActualTimeTV;
+    private TextView TargetTimeTV;
+
+
+    private String convertSecondsFormat(int secs){
+        int mins = (int) secs/60;
+        int seconds = (int) secs %60;
+
+        return "" +mins + ": " + seconds;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,10 +28,21 @@ public class pacingController extends Activity {
         speechModel sm = speechModel.getInstance();
 
 
-        pacingVal = (TextView) findViewById(R.id.spmVal);
-        tTime = (TextView) findViewById((R.id.totalTime));
+        actualSPMVal = (TextView) findViewById(R.id.spmVal);
+
+
+        TargetTimeTV = (TextView) findViewById((R.id.targTimeVal));
+        ActualTimeTV = (TextView) findViewById((R.id.actTimeVal));
+
 
         int wpm = sm.getActualPacing();
-        pacingVal.setText(""+wpm);
+        actualSPMVal.setText(""+wpm);
+
+        int targSeconds = sm.getTargetTime();
+        int actualSeconds = sm.getActualTime();
+
+        TargetTimeTV.setText(convertSecondsFormat(targSeconds));
+
+        ActualTimeTV.setText(convertSecondsFormat(actualSeconds));
     }
 }
