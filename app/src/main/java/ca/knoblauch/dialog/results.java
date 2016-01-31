@@ -33,21 +33,21 @@ public class results extends Activity{
         pacing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(this, FilterWordActivity.class);
+                Intent intent = new Intent(view.getContext(), FilterWordActivity.class);
                 startActivity(intent);
             }
         });
         flaggedWords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(this, FilterWordActivity.class);
+                Intent intent1 = new Intent(view.getContext(), FilterWordActivity.class);
                 startActivity(intent1);
             }
         });
         readingLevel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(this, FilterWordActivity.class);
+                Intent intent2 = new Intent(view.getContext(), FilterWordActivity.class);
                 startActivity(intent2);
             }
         });

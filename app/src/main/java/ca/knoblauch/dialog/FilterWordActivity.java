@@ -29,7 +29,7 @@ public class FilterWordActivity extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filterwords);
-
+        speechModel sm = speechModel.getInstance();
 //        List<String> myList = new ArrayList<String>();
 //        myList.add("test1");
 //        myList.add("test2");
