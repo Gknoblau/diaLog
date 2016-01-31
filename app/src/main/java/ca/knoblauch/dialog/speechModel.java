@@ -150,11 +150,11 @@ public class speechModel {
     }
 
     public int getActualPacing(){
-        int wordsPerMinute = wordCount / (actualTime / 60);
+        int wordsPerMinute = (int) (wordCount / (actualTime / 60.0));
         return wordsPerMinute;
     }
     public int getTargetPacing(){
-        int wordsPerMinute = wordCount / (targetTime / 60);
+        int wordsPerMinute = (int) (wordCount / (targetTime / 60.0));
         return wordsPerMinute;
     }
     public int getWordCount(){
