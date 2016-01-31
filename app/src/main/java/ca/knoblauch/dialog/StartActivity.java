@@ -1,79 +1,110 @@
+
 package ca.knoblauch.dialog;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.speech.RecognizerIntent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.security.AccessControlContext;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by gknoblau on 2016-01-30.
  */
 
+
+
 public class StartActivity extends Activity{
 
-    Button btnStart, btnStop;
-    TextView textViewTime;
-    Chronometer chronometer;
+
+    //private Chronometer speechtimer;
+    private TextView txtSpeechOutput;
+    private ImageButton btnSpeak;
+    private speechModel sm = new speechModel();
+    private String voiceString;
+    private Boolean startAnalysis = false;
+    private final int REQ_CODE_SPEECH_INPUT = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        btnStart = (Button) findViewById(R.id.btnStart);
-        btnStop = (Button) findViewById(R.id.btnStop);
-        chronometer = (Chronometer) findViewById(R.id.chronometer);
-        //textViewTime = (TextView) findViewById(R.id.textViewTime);
-        //textViewTime.setText("00:03:00");
-        //final CounterClass timer = new CounterClass(180000, 1000);
+        //speechtimer = (Chronometer) findViewById(R.id.speechTimer);
+        txtSpeechOutput = (TextView) findViewById(R.id.txtSpeechOutput);
+        btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
+
+        btnSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chronometer.start();
-                //timer.start();
+                promptSpeechInput();
             }
         });
+    }
 
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chronometer.stop();
-                //Change to differnet view
-                //timer.cancel();
-            }
-        });
+    private void analysis() {
+        setContentView(R.layout.results);
+        Map results = sm.importText(voiceString);
 
     }
 
-    /**public class CounterClass extends CountDownTimer {
-        public CounterClass(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
+    /**
+     * Showing google speech input dialog
+     * */
+    private void promptSpeechInput() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                getString(R.string.speech_prompt));
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(),
+                    getString(R.string.speech_not_supported),
+                    Toast.LENGTH_SHORT).show();
         }
+    }
 
-        @Override
-        public void onTick(long millisUntilFinshed) {
-            long millis = millisUntilFinshed;
-            String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
-                    TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
-                    TimeUnit.MILLISECONDS.toSeconds((millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))));
-            System.out.println(hms);
-            textViewTime.setText(hms);
+    /**
+     * Receiving speech input
+     * */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        switch (requestCode) {
+            case REQ_CODE_SPEECH_INPUT: {
+                if (resultCode == RESULT_OK && null != data) {
+
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    voiceString = (result.get(0));
+                    startAnalysis = true;
+                    analysis();
+                    //txtSpeechOutput.setText(result.get(0));
+                }
+                break;
+            }
 
         }
+    }
 
-        @Override
-        public void onFinish() {
-            textViewTime.setText("Completed");
-        }
-    } **/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate((R.me));

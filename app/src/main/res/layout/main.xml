@@ -1,34 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context=".StartActivity" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-    <Button
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txtSpeechOutput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnStart"
-        android:layout_marginLeft="28dp"
-        android:text="Start"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="112dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnStop"
-        android:layout_marginRight="67dp"
-        android:text="Stop"
-        android:layout_marginEnd="46dp"
-        android:layout_alignTop="@+id/btnStart"
-        android:layout_alignParentEnd="true" />
-
-    <Chronometer
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/chronometer"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="116dp" />
+        android:layout_marginTop="100dp"
+        android:textColor="@color/white"
+        android:textSize="26dp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/btnSpeak"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:src="@mipmap/simple"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/tap_on_mic"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+    </LinearLayout>
 
 </RelativeLayout>
