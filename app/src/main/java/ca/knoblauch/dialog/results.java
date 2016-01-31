@@ -50,7 +50,7 @@ public class results extends Activity{
         String time1 = timeMin + ":" + time;
         timeView.setText(time1);
 
-
+        pacingVal.setText(""+sm.getActualPacing());
         fv.setText("" + sm.getTotalFlaggedWords());
         readVal.setText(""+sm.getReadingLevel());
 //        pacingVal.setText(""+sm.getActualPacing());
