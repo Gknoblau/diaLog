@@ -22,7 +22,8 @@ public class modelTest {
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
-        Map results = sm.importText("I am the best. Fuck, whore I mean documents. shit fuck um");
+        sm.importText("I am the best. Fuck, whore I mean documents. shit fuck um");
+        Map results = sm.getWordDictionary();
         // 13
         Integer count = (Integer) results.get("fuck");
 
@@ -37,16 +38,21 @@ public class modelTest {
         assertEquals(10, sm.getTimeDifference());
         assertEquals(13, sm.getSyllabeCount());
 
-        results = sm.importText("actor");
+        sm.importText("actor");
+        results = sm.getWordDictionary();
+
         assertEquals("actor", sm.getText());
 
         assertEquals(2, sm.getSyllabeCount());
 
-        results = sm.importText("documents");
+        sm.importText("documents");
+        results = sm.getWordDictionary();
+
         assertEquals("documents", sm.getText());
 
         assertEquals(3, sm.getSyllabeCount());
-        results = sm.importText("Plain English recommends short sentences. Robert Gunning faults marathon sentences in his book How To Take The Fog Out Of Writing. Though he admits to the possibility of long sentences being balanced and readable, he notes that only highly skilled writers such as Charles Dickens and Thomas Wolfe can write a marathon sentence with clarity. He adds: “But even these accomplished writers produced marathon sentences only occasionally. On the average, they wrote fewer than 20 words per sentence.”");
+        sm.importText("Plain English recommends short sentences. Robert Gunning faults marathon sentences in his book How To Take The Fog Out Of Writing. Though he admits to the possibility of long sentences being balanced and readable, he notes that only highly skilled writers such as Charles Dickens and Thomas Wolfe can write a marathon sentence with clarity. He adds: “But even these accomplished writers produced marathon sentences only occasionally. On the average, they wrote fewer than 20 words per sentence.”");
+        results = sm.getWordDictionary();
 
         int readingLevel = sm.getReadingLevel();
         int wordCount = sm.getWordCount();
@@ -72,6 +78,7 @@ public class modelTest {
         assertEquals(9, readlevel);
 
 //        Log.d("result", Integer.toString(count));
+
     }
 
 //    @test
