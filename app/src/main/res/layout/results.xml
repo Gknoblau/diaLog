@@ -45,14 +45,14 @@
         android:layout_toStartOf="@+id/timeTitle"
         android:layout_marginTop="42dp" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:id="@+id/flaggedWordsView"
-        android:layout_below="@+id/pacingView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:visibility="invisible" />
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="100"
+        android:id="@+id/pacingValue"
+        android:layout_alignTop="@+id/pacing"
+        android:layout_alignEnd="@+id/readingLevelValue" />
 
     <Button
         android:layout_width="wrap_content"
@@ -61,7 +61,9 @@
         android:layout_below="@+id/timeTitle"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:clickable="false"
+        android:background="#00ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,14 +75,24 @@
         android:layout_below="@+id/pacingView"
         android:layout_alignEnd="@+id/timeTitle" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="5"
+        android:id="@+id/flaggedWordsValue"
+        android:layout_alignTop="@+id/flaggedWords"
+        android:layout_alignStart="@+id/readingLevelValue" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="120dp"
-        android:id="@+id/readingLevelView"
-        android:layout_below="@+id/flaggedWordsView"
+        android:id="@+id/flaggedWordsView"
+        android:layout_below="@+id/pacingView"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:visibility="invisible" />
+        android:visibility="visible"
+        android:background="#00ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,6 +103,25 @@
         android:layout_marginTop="43dp"
         android:layout_below="@+id/flaggedWordsView"
         android:layout_alignStart="@+id/flaggedWords" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="15"
+        android:id="@+id/readingLevelValue"
+        android:layout_alignBottom="@+id/readingLevel"
+        android:layout_alignStart="@+id/home" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:id="@+id/readingLevelView"
+        android:layout_below="@+id/flaggedWordsView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="visible"
+        android:background="#00ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -107,32 +138,5 @@
         android:id="@+id/home"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/time" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="100"
-        android:id="@+id/pacingValue"
-        android:layout_alignTop="@+id/pacing"
-        android:layout_alignEnd="@+id/readingLevelValue" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="5"
-        android:id="@+id/flaggedWordsValue"
-        android:layout_alignTop="@+id/flaggedWords"
-        android:layout_alignStart="@+id/readingLevelValue" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="15"
-        android:id="@+id/readingLevelValue"
-        android:layout_alignBottom="@+id/readingLevel"
-        android:layout_alignStart="@+id/home" />
 
 </RelativeLayout>
