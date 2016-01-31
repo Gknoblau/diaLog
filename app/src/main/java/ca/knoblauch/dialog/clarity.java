@@ -9,7 +9,12 @@ import android.widget.TextView;
  */
 public class clarity extends Activity {
 
-    private TextView RLevelVal;
+    private TextView actualReadLevel;
+    private TextView targetReadLevel;
+    private TextView actualWordsMinute;
+    private TextView targetWordsMinute;
+    private TextView hammingDistance;
+
     private TextView SPW;
 
     @Override
@@ -18,13 +23,22 @@ public class clarity extends Activity {
         setContentView(R.layout.pacingview);
         speechModel sm = speechModel.getInstance();
 
+        actualReadLevel = (TextView) findViewById(R.id.actualReadLevel);
+        targetReadLevel = (TextView) findViewById(R.id.targetReadLevel);
+        actualWordsMinute = (TextView) findViewById(R.id.actualWordsMinute);
+        targetWordsMinute = (TextView) findViewById(R.id.targetWordsMinute);
+        hammingDistance = (TextView) findViewById(R.id.hammingDistance);
 
-        RLevelVal = (TextView) findViewById(R.id.readingLevelValDisp);
-        SPW = (TextView) findViewById(R.id.avgspw);
-        int rl = sm.getActualReadingLevel();
-        int spwActual = sm.getSPWActual();
-        RLevelVal.setText(""+rl);
-        SPW.setText(""+ spwActual);
+        //int rl = sm.getReadingLevel();
+        //int spwActual = sm.getSPWActual();
+        //int
+
+
+        actualReadLevel.setText("");
+        targetReadLevel.setText("");
+        actualWordsMinute.setText("");
+        targetWordsMinute.setText("");
+        hammingDistance.setText("");
 
 
 

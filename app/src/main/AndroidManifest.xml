@@ -32,7 +32,11 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".pacingController"
+        android:name=".pacingController"
+        android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".clarity"
             android:label="@string/app_name" >
         </activity>
     </application>
