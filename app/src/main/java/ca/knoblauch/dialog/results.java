@@ -3,12 +3,9 @@ package ca.knoblauch.dialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.io.FileOutputStream;
 
 /**
  * Created by gknoblau on 2016-01-30.
@@ -61,8 +58,8 @@ public class results extends Activity{
         pacing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), FilterWordActivity.class);
-                startActivity(intent);
+                Intent intent7 = new Intent(view.getContext(), pacingController.class);
+                startActivity(intent7);
             }
         });
         flaggedWords.setOnClickListener(new View.OnClickListener() {
