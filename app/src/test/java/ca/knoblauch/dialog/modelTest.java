@@ -18,7 +18,7 @@ import java.util.Map;
 //
 //@RunWith(AndroidJUnit4.class)
 public class modelTest {
-    speechModel sm = new speechModel();
+    speechModel sm = speechModel.getInstance();
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
@@ -52,6 +52,7 @@ public class modelTest {
 
         assertEquals(3, sm.getSyllabeCount());
         sm.importText("Plain English recommends short sentences. Robert Gunning faults marathon sentences in his book How To Take The Fog Out Of Writing. Though he admits to the possibility of long sentences being balanced and readable, he notes that only highly skilled writers such as Charles Dickens and Thomas Wolfe can write a marathon sentence with clarity. He adds: “But even these accomplished writers produced marathon sentences only occasionally. On the average, they wrote fewer than 20 words per sentence.”");
+        sm = speechModel.getInstance();
         results = sm.getWordDictionary();
 
         int readingLevel = sm.getReadingLevel();

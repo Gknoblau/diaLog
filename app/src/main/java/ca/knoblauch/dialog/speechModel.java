@@ -19,7 +19,18 @@ public class speechModel {
     private int syllableCount;
     private String voiceInputString;
     private int AVERAGEWORDPERSENTANCES =17;
-
+    private static speechModel firstInstance = null;
+    private speechModel() {};
+    public static speechModel getInstance(){
+        if(firstInstance == null){
+            synchronized(speechModel.class){
+                if(firstInstance == null){
+                    firstInstance = new speechModel();
+                }
+            }
+        }
+        return firstInstance;
+    }
     public void importText(String inputString){
         voiceInputString = inputString.toLowerCase();
         wordCount =0;
