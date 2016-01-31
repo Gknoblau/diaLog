@@ -39,5 +39,9 @@
             android:name=".clarity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".importScript"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 </manifest>
