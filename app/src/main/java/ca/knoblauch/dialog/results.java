@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.FileOutputStream;
 
@@ -19,6 +20,11 @@ public class results extends Activity{
     private Button script;
     private Button home;
 
+    private TextView readVal;
+
+    private TextView fv;
+    private TextView pacingVal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +33,18 @@ public class results extends Activity{
 
         pacing = (Button) findViewById(R.id.pacingView);
         flaggedWords = (Button) findViewById(R.id.flaggedWordsView);
+        fv = (TextView) findViewById(R.id.flaggedWordsValue);
+
+        readVal = (TextView) findViewById(R.id.readingLevelValue);
+        pacingVal = (TextView) findViewById(R.id.pacingValue);
+
         readingLevel = (Button) findViewById(R.id.readingLevelView);
+
         script = (Button)findViewById(R.id.script);
         home = (Button) findViewById(R.id.home);
-
+        fv.setText("" + sm.getTotalFlaggedWords());
+        readVal.setText(""+sm.getReadingLevel());
+//        pacingVal.setText(""+sm.getActualPacing());
         pacing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

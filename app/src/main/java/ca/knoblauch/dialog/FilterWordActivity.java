@@ -39,14 +39,17 @@ public class FilterWordActivity extends Activity  {
 
         List<String> flaggedWordList = new ArrayList<String>();
         List<String> swears= Arrays.asList("fuck", "shit", "um","uh","damn","like","damn","darn");
+        int Count =0;
 
-        System.out.println("==> For Loop Example.");
         for (int i = 0; i < swears.size(); i++) {
-            int Count =0;
             if (flaggedWords.get(swears.get(i))!=null){
                 flaggedWordList.add(swears.get(i)+": " + (flaggedWords.get("fuck") ));
-
+                Count++;
             }
+        }
+        if(Count==0) {
+            flaggedWordList.add("No flagged words detected");
+
         }
 //        flaggedWordList.add("fuck: " + (flaggedWords.get("fuck") );
 //        flaggedWordList.add("shit: ");

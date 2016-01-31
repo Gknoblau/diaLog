@@ -17,6 +17,7 @@ public class speechModel {
     private int wordCount;
     private Map wordDicCount;
     private int syllableCount;
+    private int totalFlaggedWords =0;
     private String voiceInputString;
     private int AVERAGEWORDPERSENTANCES =17;
     private static speechModel firstInstance = null;
@@ -95,12 +96,17 @@ public class speechModel {
 
                     dictionary.put(word, val + 1);
                 } else {
+
                     dictionary.put(word, 1);
                 }
+                totalFlaggedWords++;
             }
         }
 
         return dictionary;
+    }
+    public int getTotalFlaggedWords(){
+        return totalFlaggedWords;
     }
     // http://stackoverflow.com/questions/9154027/java-writing-a-syllable-counter-based-on-specifications
     private int countSyllables(String word) {
