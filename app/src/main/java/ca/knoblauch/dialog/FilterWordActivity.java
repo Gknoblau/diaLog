@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,8 +31,28 @@ public class FilterWordActivity extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filterwords);
+        flaggedWordListView = (ListView) findViewById(R.id.flaggedWordListView);
         speechModel sm = speechModel.getInstance();
-//        List<String> myList = new ArrayList<String>();
+        Map flaggedWords = sm.getWordDictionary();
+
+
+        List<String> flaggedWordList = new ArrayList<String>();
+        flaggedWordList.add("fuck: " + flaggedWords.get("fuck") );
+        flaggedWordList.add("shit: ");
+        flaggedWordList.add("um: ");
+        flaggedWordList.add("like: ");
+        flaggedWordList.add("damn: ");
+        flaggedWordList.add("darn: ");
+//        ListAdapter la  = new ArrayAdapter<String>(this, );
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                flaggedWordList );
+        flaggedWordListView.setAdapter(arrayAdapter);
+//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+//                this,
+//                android.R.layout.simple_list_item_1,
+//                your_array_list );
 //        myList.add("test1");
 //        myList.add("test2");
 //        myList.add("test3");
@@ -38,11 +60,11 @@ public class FilterWordActivity extends Activity  {
 
         //speechtimer = (Chronometer) findViewById(R.id.speechTimer);
         //txtSpeechOutput = (TextView) findViewById(R.id.txtSpeechOutput);
-        flaggedWordListView = (ListView) findViewById(R.id.flaggedWord);
 
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
