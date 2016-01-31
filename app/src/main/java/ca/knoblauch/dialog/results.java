@@ -3,6 +3,7 @@ package ca.knoblauch.dialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -24,9 +25,9 @@ public class results extends Activity{
         setContentView(R.layout.results);
         speechModel sm = speechModel.getInstance();
 
-        pacing = (Button) findViewById(R.id.pacing);
-        flaggedWords = (Button) findViewById(R.id.flaggedWords);
-        readingLevel = (Button) findViewById(R.id.readingLevel);
+        pacing = (Button) findViewById(R.id.pacingView);
+        flaggedWords = (Button) findViewById(R.id.flaggedWordsView);
+        readingLevel = (Button) findViewById(R.id.readingLevelView);
         script = (Button)findViewById(R.id.script);
         home = (Button) findViewById(R.id.home);
 
@@ -51,6 +52,19 @@ public class results extends Activity{
                 startActivity(intent2);
             }
         });
-
+        script.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent3 = new Intent(view.getContext(), Script.class);
+                startActivity(intent3);
+            }
+        });
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent4 = new Intent(view.getContext(), StartActivity.class);
+                startActivity(intent4);
+            }
+        });
     }
 }
