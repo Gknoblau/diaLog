@@ -19,7 +19,8 @@ public class results extends Activity{
     private Button home;
     private TextView timeView;
     private int time;
-    private int timeMin;
+    private int mins;
+    private int seconds;
 
     private TextView readVal;
 
@@ -47,10 +48,15 @@ public class results extends Activity{
         importScript = (Button) findViewById(R.id.importText);
 
         time = sm.getActualTime();
-        timeMin = time/60;
-        time = time%60;
-        String time1 = timeMin + ":" + time;
-        timeView.setText(time1);
+        mins = time/60;
+        seconds = time%60;
+        if (seconds < 10 ){
+            timeView.setText("" +mins + ": 0" + seconds);
+
+        } else {
+            timeView.setText("" +mins + ": " + seconds);
+
+        }
 
         pacingVal.setText(""+sm.getActualPacing());
         fv.setText("" + sm.getTotalFlaggedWords());
