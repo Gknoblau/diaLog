@@ -16,6 +16,8 @@ public class speechModel {
     private int wordCount;
     private int syllableCount;
     private String voiceInputString;
+    private int AVERAGEWORDPERSENTANCES =17;
+
     public Map importText(String inputString){
         voiceInputString = inputString.toLowerCase();
         wordCount =0;
@@ -118,8 +120,20 @@ public class speechModel {
         int wordsPerMinute = wordCount / (targetTime / 60);
         return wordsPerMinute;
     }
+    public int getWordCount(){
+        return wordCount;
+    }
+    public int getReadingLevel(){
+        double totalSentences = (double) wordCount/17.0;
 
+        double wordsPerSentance = ((double) wordCount/totalSentences);
 
+        double syllablesPerWord = ((double)syllableCount/(double) wordCount);
 
+        double firstPart = 0.39 * wordsPerSentance;
+        double secondPart = 11.8*syllablesPerWord;
+        double summation = firstPart + secondPart - 15.59;
+        return (int) Math.round(summation);
+    }
 
 }

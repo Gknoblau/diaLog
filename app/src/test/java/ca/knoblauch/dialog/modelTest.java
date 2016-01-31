@@ -46,6 +46,30 @@ public class modelTest {
         assertEquals("documents", sm.getText());
 
         assertEquals(3, sm.getSyllabeCount());
+        results = sm.importText("Plain English recommends short sentences. Robert Gunning faults marathon sentences in his book How To Take The Fog Out Of Writing. Though he admits to the possibility of long sentences being balanced and readable, he notes that only highly skilled writers such as Charles Dickens and Thomas Wolfe can write a marathon sentence with clarity. He adds: “But even these accomplished writers produced marathon sentences only occasionally. On the average, they wrote fewer than 20 words per sentence.”");
+
+        int readingLevel = sm.getReadingLevel();
+        int wordCount = sm.getWordCount();
+        int syllableCount = sm.getSyllabeCount();
+
+        assertEquals(77,wordCount);
+        assertEquals(120,syllableCount);
+
+//        assertEquals(9,readingLevel);
+        double wordsPerSentance = (77.0/5.0);
+        double syllablesPerWord = (120.0/77.0);
+
+        double firstPart = 0.39 * wordsPerSentance;
+        double secondPart = 11.8*syllablesPerWord;
+        double summation = firstPart + secondPart - 15.59;
+        assertEquals(6.006, firstPart,.1);
+        assertEquals(18.39, secondPart,.1);
+        assertEquals(9, summation,.5);
+
+
+
+        int readlevel = (int) Math.round(summation);
+        assertEquals(9, readlevel);
 
 //        Log.d("result", Integer.toString(count));
     }
