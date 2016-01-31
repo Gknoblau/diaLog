@@ -1,5 +1,7 @@
 package ca.knoblauch.dialog;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.HashMap;
@@ -65,7 +67,11 @@ public class speechModel {
         targetText=targText;
         targetWordDicCount= countTargetWords(targetText);
 
-        targetTime = (int) (1.0/TARGETSPM)/targetSyllableCount ;
+        targetTime = (int) (1.0/TARGETSPM)/targetSyllableCount *60 ;
+        if(targetTime == 0){
+            targetTime = 1;
+        }
+        Log.d("TEA", ""+targetTime);
         targetIsSet = true;
 
     }
@@ -94,7 +100,7 @@ public class speechModel {
 
         Map <String, Integer> dictionary = new HashMap<String, Integer>();
         String[] words = inputString.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
-        targetSyllableCount= words.length;
+        targetWordCount= words.length;
         for(String word: words) {
             targetSyllableCount+= countSyllables(word);
         }
