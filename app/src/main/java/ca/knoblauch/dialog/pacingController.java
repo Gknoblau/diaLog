@@ -22,7 +22,7 @@ public class pacingController extends Activity {
             return "" +mins + ": 0" + seconds;
 
         } else {
-            return "" +mins + ": 0" + seconds;
+            return "" +mins + ": " + seconds;
 
         }
     }
