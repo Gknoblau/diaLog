@@ -15,6 +15,7 @@ public class results extends Activity{
     private Button flaggedWords;
     private Button readingLevel;
     private Button script;
+    private Button importScript;
     private Button home;
     private TextView timeView;
     private int time;
@@ -43,6 +44,7 @@ public class results extends Activity{
 
         script = (Button)findViewById(R.id.script);
         home = (Button) findViewById(R.id.home);
+        importScript = (Button) findViewById(R.id.importText);
 
         time = sm.getActualTime();
         timeMin = time/60;
@@ -52,7 +54,7 @@ public class results extends Activity{
 
         pacingVal.setText(""+sm.getActualPacing());
         fv.setText("" + sm.getTotalFlaggedWords());
-        readVal.setText(""+sm.getActualReadingLevel());
+        readVal.setText("" + sm.getActualReadingLevel());
 //        pacingVal.setText(""+sm.getActualPacing());
 
         pacing.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +83,13 @@ public class results extends Activity{
             public void onClick(View view) {
                 Intent intent3 = new Intent(view.getContext(), Script.class);
                 startActivity(intent3);
+            }
+        });
+        importScript.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent27 = new Intent(view.getContext(), importScript.class);
+                startActivity(intent27);
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
