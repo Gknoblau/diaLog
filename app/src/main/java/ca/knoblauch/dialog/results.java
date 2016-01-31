@@ -24,9 +24,9 @@ public class results extends Activity{
         setContentView(R.layout.results);
         speechModel sm = speechModel.getInstance();
 
-        pacing = (Button) findViewById(R.id.pacing);
-        flaggedWords = (Button) findViewById(R.id.flaggedWords);
-        readingLevel = (Button) findViewById(R.id.readingLevel);
+        pacing = (Button) findViewById(R.id.pacingValue);
+        flaggedWords = (Button) findViewById(R.id.flaggedWordsView);
+        readingLevel = (Button) findViewById(R.id.readingLevelView);
         script = (Button)findViewById(R.id.script);
         home = (Button) findViewById(R.id.home);
 

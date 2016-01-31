@@ -46,7 +46,9 @@ public class speechModel {
         return targetTime;
     }
     public Map getWordDictionary(){
+
         return wordDicCount;
+
     }
     public void setActualTime(int inputTime){
 
