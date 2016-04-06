@@ -48,7 +48,7 @@ public class modelTest {
         assertEquals("documents", sm.getVoiceText());
 
         assertEquals(3, sm.getActualSyllabeCount());
-        sm.importVoiceText("Plain English recommends short sentences. Robert Gunning faults marathon sentences in his book How To Take The Fog Out Of Writing. Though he admits to the possibility of long sentences being balanced and readable, he notes that only highly skilled writers such as Charles Dickens and Thomas Wolfe can write a marathon sentence with clarity. He adds: “But even these accomplished writers produced marathon sentences only occasionally. On the average, they wrote fewer than 20 words per sentence.”");
+        sm.importVoiceText("Plain English recommends short sentences. Robert Gunning faults marathon sentences in his book How To Take The Fog Out Of Writing. Though he admits to the possibility of long sentences being balanced and readable, he notes that only highly skilled writers such as Charles Dickens and Thomas Wolfe can write a marathon sentence with ClarityActivity. He adds: “But even these accomplished writers produced marathon sentences only occasionally. On the average, they wrote fewer than 20 words per sentence.”");
         sm = speechModel.getInstance();
         results = sm.getActualWordDicCount();
 
@@ -87,9 +87,9 @@ public class modelTest {
 
 //    @test
 //    public void word_analysis_works() throws Exception {
-//          Map results = sm.importText("I am the best. Fuck I mean second");
-//          String count = (String) results.get("fuck");
-//          assertEquals(2, results.get("fuck"));
+//          Map ResultsActivity = sm.importText("I am the best. Fuck I mean second");
+//          String count = (String) ResultsActivity.get("fuck");
+//          assertEquals(2, ResultsActivity.get("fuck"));
 //          Log.d("result", count);
 //    }
 

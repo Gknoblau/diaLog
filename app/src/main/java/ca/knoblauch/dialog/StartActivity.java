@@ -5,22 +5,15 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.speech.RecognizerIntent;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Chronometer;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.security.AccessControlContext;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by gknoblau on 2016-01-30.
@@ -36,7 +29,7 @@ public class StartActivity extends Activity{
     private String voiceString;
     private Boolean startAnalysis = false;
     private final int REQ_CODE_SPEECH_INPUT = 100;
-    public static final String  timeTillStop = "4000";
+    private static final String  timeTillStop = "4000";
     //public String targetText;
    //public EditText scriptInput;
     public String inputTextVal;
@@ -69,7 +62,7 @@ public class StartActivity extends Activity{
         //if (inputTextVal.length()>4){
         //    sm.setTargetText(""+scriptInput);
         //}
-        Intent intent = new Intent(this, results.class);
+        Intent intent = new Intent(this, ResultsActivity.class);
         startActivity(intent);
 
     }
@@ -77,7 +70,7 @@ public class StartActivity extends Activity{
     /**
      * Showing google speech input dialog
      * */
-    long startTime;
+    private long startTime;
     private void promptSpeechInput() {
         startTime = System.currentTimeMillis() / 1000L;
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);

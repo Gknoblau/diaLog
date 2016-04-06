@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class speechModel {
 
-    ArrayList<String> watchWords = new ArrayList<String>();
+    private ArrayList<String> watchWords = new ArrayList<String>();
 
     private int targetTime;
     private int actualTime;
@@ -39,7 +39,7 @@ public class speechModel {
     private boolean targetIsSet = false;
 
     private static speechModel firstInstance = null;
-    private speechModel() {};
+    private speechModel() {}
 
 
 
@@ -84,7 +84,7 @@ public class speechModel {
         return targetIsSet;
     }
     public int getTargetTime(){
-        return (int) targetTime;
+        return targetTime;
     }
     public Map getActualWordDicCount(){
         return actualWordDicCount;
@@ -135,7 +135,7 @@ public class speechModel {
             boolean isWatchWord = watchWords.contains(word);
             if(isWatchWord ) {
                 if (dictionary.containsKey(word)) {
-                    int val = (int) dictionary.get(word);
+                    int val = dictionary.get(word);
 
                     dictionary.put(word, val + 1);
                 } else {
@@ -164,7 +164,7 @@ public class speechModel {
         for (int j = 0; j < word.length(); j++) {
             if (word.contains("a") || word.contains("e") || word.contains("i") || word.contains("o") || word.contains("u")) {
                 if (isVowel(word.charAt(j)) && !((word.charAt(j) == 'e') && (j == word.length()-1))) {
-                    if (isPrevVowel == false) {
+                    if (!isPrevVowel) {
                         count++;
                         isPrevVowel = true;
                     }
@@ -178,7 +178,7 @@ public class speechModel {
         }
         return count;
     }
-    public boolean isVowel(char c) {
+    private boolean isVowel(char c) {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
             return true;
         } else {
@@ -199,12 +199,12 @@ public class speechModel {
 
 
     public int getActualPacing(){
-        int wordsPerMinute = (int) (actualWordCount/ (actualTime / 60.0));
-        return wordsPerMinute;
+        int wordsPerMinutePace = (int) (actualWordCount/ (actualTime / 60.0));
+        return wordsPerMinutePace;
     }
     public int getTargetPacing(){
-        int wordsPerMinute = (int) (targetWordCount / (targetTime / 60.0));
-        return wordsPerMinute;
+        int wordsPerMinuteTar = (int) (targetWordCount / (targetTime / 60.0));
+        return wordsPerMinuteTar;
     }
     public int getActualWordCount(){
 

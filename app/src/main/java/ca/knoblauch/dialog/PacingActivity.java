@@ -7,7 +7,7 @@ import android.widget.TextView;
 /**
  * Created by Dev on 2016-01-31.
  */
-public class pacingController extends Activity {
+public class PacingActivity extends Activity {
 
     private TextView actualSPMVal;
     private TextView ActualTimeTV;

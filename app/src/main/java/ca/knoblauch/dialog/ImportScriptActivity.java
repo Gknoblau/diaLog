@@ -10,10 +10,10 @@ import android.widget.EditText;
 /**
  * Created by gknoblau on 2016-01-31.
  */
-public class importScript extends Activity {
-    public Button btnImportScript;
-    public EditText scriptInput;
-    public speechModel sm;
+public class ImportScriptActivity extends Activity {
+    private Button btnImportScript;
+    private EditText scriptInput;
+    private speechModel sm;
 
 
     @Override
@@ -29,7 +29,7 @@ public class importScript extends Activity {
             @Override
             public void onClick(View view) {
                 sm.setTargetText("" + scriptInput.getText());
-                Intent intent12 = new Intent(view.getContext(), results.class);
+                Intent intent12 = new Intent(view.getContext(), ResultsActivity.class);
                 startActivity(intent12);
         }
         });

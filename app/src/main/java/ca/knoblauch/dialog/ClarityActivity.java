@@ -7,7 +7,7 @@ import android.widget.TextView;
 /**
  * Created by Dev on 2016-01-31.
  */
-public class clarity extends Activity {
+public class ClarityActivity extends Activity {
 
     private TextView actualReadLevel;
     private TextView targetReadLevel;
@@ -27,7 +27,7 @@ public class clarity extends Activity {
         hammingDistance = (TextView) findViewById(R.id.hammingDistance);
 
         isTargetSet = sm.isTargetIsSet();
-        if (isTargetSet == true){
+        if (isTargetSet){
             targetReadLevel.setText(""+sm.getTargetReadingLevel());
             hammingDistance.setText(""+sm.getLevnshteinDistance());
         } else {

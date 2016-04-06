@@ -10,7 +10,7 @@ import android.widget.TextView;
 /**
  * Created by gknoblau on 2016-01-30.
  */
-public class results extends Activity{
+public class ResultsActivity extends Activity{
     private Button pacing;
     private Button flaggedWords;
     private Button readingLevel;
@@ -66,7 +66,7 @@ public class results extends Activity{
         pacing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent7 = new Intent(view.getContext(), pacingController.class);
+                Intent intent7 = new Intent(view.getContext(), PacingActivity.class);
                 startActivity(intent7);
             }
         });
@@ -80,21 +80,21 @@ public class results extends Activity{
         readingLevel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(view.getContext(), clarity.class);
+                Intent intent2 = new Intent(view.getContext(), ClarityActivity.class);
                 startActivity(intent2);
             }
         });
         script.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent3 = new Intent(view.getContext(), Script.class);
+                Intent intent3 = new Intent(view.getContext(), ScriptActivity.class);
                 startActivity(intent3);
             }
         });
         importScript.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent27 = new Intent(view.getContext(), importScript.class);
+                Intent intent27 = new Intent(view.getContext(), ImportScriptActivity.class);
                 startActivity(intent27);
             }
         });
